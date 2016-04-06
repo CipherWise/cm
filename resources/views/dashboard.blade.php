@@ -9,8 +9,8 @@
 
                 <div class="panel-body">
                     Campaigns & Characters<br />
+                    Email: {{Auth::user()->email}}
                     Phone: {{Auth::user()->phone}}
-                    
                 </div>
             </div>
         </div>
