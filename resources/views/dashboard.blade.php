@@ -10,6 +10,7 @@
                 <div class="panel-body">
                     Campaigns & Characters<br />
                     Phone: {{Auth::user()->phone}}
+                    
                 </div>
             </div>
         </div>
