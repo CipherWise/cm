@@ -40,8 +40,7 @@
                         
                         <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Phone</label>
->>>>>>> 450a7625278d60d996746957ff50c387bef91822
-
+                            
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="phone" value="{{ old('phone') }}" maxlength="10">
 
@@ -53,48 +52,6 @@
                             </div>
                         </div>
                         
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">First Name</label>
-
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="first_name" value="{{ old('first_name') }}">
-
-                                @if ($errors->has('first_name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('first_name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        
-                        <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Last Name</label>
-
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="last_name" value="{{ old('last_name') }}">
-
-                                @if ($errors->has('last_name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('last_name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        
-                        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Phone</label>
-
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="phone" value="{{ old('phone') }}" maxlength="10">
-
-                                @if ($errors->has('phone'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('phone') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">E-Mail Address</label>
 
