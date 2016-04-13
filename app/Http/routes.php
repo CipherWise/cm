@@ -23,3 +23,5 @@ Route::get('/home', 'HomeController@index');
 Route::get('/dashboard', 'DashboardController@index');
 
 Route::get('/account', 'AccountController@index');
+
+Route::get('/player_hud', 'PlayerHUDController@index');
