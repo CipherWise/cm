@@ -8,7 +8,9 @@
                 <div class="panel-heading">My Characters</div>
 
                 <div class="panel-body">
-                    Characters go here
+                    @foreach(Auth::user()->characters as $character)
+                    <a href="" style="margin-left:20px;">{{$character->first_name}} {{$character->last_name}}</a>
+                    @endforeach
                 </div>
             </div>
         </div>
