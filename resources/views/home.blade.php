@@ -15,8 +15,11 @@
                     @endforeach
                     
                    @else
-                   <a href="/player_hud">You currently have no characters</a><br />
+                   You currently have no characters<br />
+                   <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
                    @endif
+                   
+                    <a href="/character_creator"><button type="button" class="btn btn-primary-margin-top:30px">Create Character</button></a>
                     
                 </div>
             </div>
@@ -31,7 +34,7 @@
                 <div class="panel-heading">My Campaigns</div>
 
                 <div class="panel-body">
-                    Campaigns go here
+                    <a href="/player_hud">Campaigns go here</a><br />
                 </div>
             </div>
         </div>
