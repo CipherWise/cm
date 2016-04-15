@@ -9,6 +9,6 @@ class Race extends Model
     //
     public function characters()
     {
-        return $this->belongsToMany('App\Models\Character');
+        return $this->hasMany('App\Models\Character');
     }
 }

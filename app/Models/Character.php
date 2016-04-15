@@ -19,11 +19,12 @@ class Character extends Model
     
     public function classes()
     {
-        return $this->hasMany('App\Models\Class');
+        return $this->belongsToMany( 'App\Models\CharacterClass', 'character_class')
+          ->withPivot('level', 'xp');
     }
     
     public function race()
     {
-        return $this->hasOne('App\Models\Race');
+        return $this->belongsTo('App\Models\Race');
     }
 }

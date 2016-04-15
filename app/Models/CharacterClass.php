@@ -10,7 +10,7 @@ class CharacterClass extends Model
     //
     public function characters()
     {
-        return $this->belongsToMany('App\Models\Character');
+        return $this->belongsToMany('App\Models\Character', 'character_class');
     }
     
     public function levels()
