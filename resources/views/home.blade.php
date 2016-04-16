@@ -25,7 +25,7 @@
                         <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
                     @endif
                    
-                    <a href="/character_creator"><button type="button" class="btn btn-primary-margin-top:30px">Create Character</button></a>
+                    <a href="/character_creation"><button type="button" class="btn btn-primary-margin-top:30px"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Create Character</button></a>
                 </div>
             </div>
         </div>

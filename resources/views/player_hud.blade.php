@@ -8,12 +8,14 @@
 
 <!--Picture of Character-->
  <div class="col-md-3 col-md-offset-1">
- <div class="panel panel-default margin-bottom: 0px">
-  <div class="panel-heading">
+ <div class="panel panel-default">
+       <div class="panel-heading">
     <h3 class="panel-title">Your Character</h3>
   </div>
   <div class="panel-body">
-    A Picture of your character
+     
+    <img src="images/image001.png" style="max-height: 300px" class="img-responsive center-block img-circle" alt="Responsive image">
+     
   </div>
 </div>
  </div>
