@@ -39,6 +39,16 @@
                 <div class="panel-heading">My Campaigns</div>
 
                 <div class="panel-body">
+                    @if (Auth::user()->campaigns->count())
+                        @foreach(Auth::user()->campaigns as $campaign)
+                            <a href="./campaign/{{$campaign->id}}" style="margin-left:20px;">{{$campaign->name}}</a>
+                            <br /><br />
+                        @endforeach
+                    @else
+                        You currently have no campaigns<br />
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                    @endif
+                    
                     <a href="/player_hud">Campaigns go here</a><br />
                 </div>
             </div>

@@ -24,6 +24,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     
+    public function campaigns()
+    {
+        return $this->hasMany('App\Models\Campaign');
+    }
+    
     public function characters()
     {
         return $this->hasMany('App\Models\Character');
