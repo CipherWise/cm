@@ -27,4 +27,49 @@ class Character extends Model
     {
         return $this->belongsTo('App\Models\Race');
     }
+    
+    
+    // Specials via the character_special m2mpm pivot table. TypeOption = 'specials'
+    public function feats()
+    {
+        return $this->morphedByMany('App\Models\Feat', 'character_special');
+    }
+    
+    public function special_abilities()
+    {
+        return $this->morphedByMany('App\Models\SpecialAbility', 'character_special');
+    }
+    
+    public function spells()
+    {
+        return $this->morphedByMany('App\Models\Spell', 'character_special');
+    }
+    
+    
+    // Equipment via the character_equipement m2mpm pivot table. TypeOption = 'specials'
+    public function ammunition()
+    {
+        return $this->morphedByMany('App\Models\Ammunition', 'character_equipment');
+    }
+    
+    public function armor()
+    {
+        return $this->morphedByMany('App\Models\Armor', 'character_equipment');
+    }
+    
+    public function items()
+    {
+        return $this->morphedByMany('App\Models\Item', 'character_equipment');
+    }
+    
+    public function sustenance()
+    {
+        return $this->morphedByMany('App\Models\Sustenance', 'character_equipment');
+    }
+    
+    public function weapons()
+    {
+        return $this->morphedByMany('App\Models\Weapon', 'character_equipment');
+    }
+
 }

@@ -18,6 +18,13 @@
                                     /
                                 @endif
                             @endforeach
+                             - Weapons: 
+                            @foreach($character->weapons as $weapon)
+                                {{$weapon->name}}
+                                @if ($character->weapons->count()>1)
+                                    /
+                                @endif
+                            @endforeach
                             <br /><br />
                         @endforeach
                     @else
@@ -48,8 +55,6 @@
                         You currently have no campaigns<br />
                         <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
                     @endif
-                    
-                    
                     <a href="/player_hud">Campaigns go here</a><br />
                 </div>
             </div>
