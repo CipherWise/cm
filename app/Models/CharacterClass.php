@@ -27,4 +27,9 @@ class CharacterClass extends Model
     {
         return $this->hasMany('App\Models\ClassArchtype');
     }
+    
+    public static function types()
+    {
+        return CharacterClass::select('type')->distinct('type')->get();
+    }
 }
