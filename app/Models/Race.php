@@ -11,4 +11,9 @@ class Race extends Model
     {
         return $this->hasMany('App\Models\Character');
     }
-}
+ public static function race()
+ {
+        return Races::select('name')->get();
+    }
+    
+    }

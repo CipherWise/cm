@@ -28,6 +28,12 @@ class Character extends Model
         return $this->belongsTo('App\Models\Race');
     }
     
+    public function skills()
+    {
+        return $this->belongsToMany('App\Models\Skill', 'character_skill')
+          ->withPivot('specialty_id', 'ranks');
+    }
+    
     
     // Specials via the character_special m2mpm pivot table. TypeOption = 'specials'
     public function feats()

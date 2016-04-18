@@ -2,6 +2,11 @@
 
 @section('content')
 
+
+<!--Collected Static Data-->
+
+
+
 <div class="container-fluid">
 <div class="row">
 
@@ -14,7 +19,7 @@
   </div>
   <div class="panel-body">
      
-    <img src="images/image001.png" style="max-height: 300px" class="img-responsive center-block img-circle" alt="Responsive image">
+    <img src="images/image001.png" style="max-height: 300px" class="img-responsive center-block img-rounded" alt="Responsive image">
      
   </div>
 </div>
