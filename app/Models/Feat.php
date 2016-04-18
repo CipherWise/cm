@@ -11,4 +11,9 @@ class Feat extends Model
     {
         return $this->morphToMany('App\Models\Character', 'character_special');
     }
+    
+    public function effects()
+    {
+        return $this->morphToMany('App\Models\Effect', 'effect_special');
+    }
 }
