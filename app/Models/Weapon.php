@@ -11,4 +11,9 @@ class Weapon extends Model
     {
         return $this->morphToMany('App\Models\Character', 'character_special');
     }
+    
+    public function ammunition()
+    {
+        return $this->belongsToMany('App\Models\Ammunition');
+    }
 }
