@@ -1,13 +1,17 @@
+
 @extends ('layouts.app')
 
 
+
+
 @section ('content')
+
 
 <div class="container"><div class="row"><div class="col-lg-6 col-md-offset-3"><h1> Create New Character</h1></div></div></div><br />
 <br />
 
 
-<!--The Deets-->
+<!--The Deets (Pen and Paper style)-->
 
 <div class="container-fluid center-block">
 <form class="form-inline">
@@ -27,7 +31,10 @@
 </div>
 <div class="spacer10"></div>
 
-<!--Choose Class-->
+<!--Choose Class (Start of accordion)-->
+
+<div class="container-fluid">
+<div class="row col-lg-6">
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
@@ -40,19 +47,25 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-          Class Type:<br />
-        <?php $Types = App\Models\CharacterClass::types();
-                        foreach ($Types as $type) {?>
-                      
-                        <input class="btn btn-default" type="button" value="{{$type->type}}">         
-                        <?php } ?><br />
-                        <p>Class:<br />
-                              <?php $classes = App\Models\CharacterClass::all();
-                        foreach($classes as $class){?>
-                        
-                        <input class="btn btn-default" type="button" value="{{$class->name}}">
-                        
-                            <?php } ?></P>
+    Class Type:<br />
+    <div class="btn-group" data-toggle="buttons">
+<?php $i=1 ?>
+<?php $Types = App\Models\CharacterClass::types();
+    foreach ($Types as $type) {?>
+        <label class="btn btn-default">                 
+    <input class="btn btn-default" type="radio" name="classType" id="{{$type->type}}" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{$type->type}}">{{$type->type}}</label>  
+          <?php } ?>
+                     
+    </div><br />
+    <p>Class:<br />
+    <div class="btn-group" data-toggle="buttons">       
+<?php $classes = App\Models\CharacterClass::all();
+    foreach($classes as $class){?>
+    <label class="btn btn-default charclass" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="{{$class->role}}">                  
+    <input class="btn btn-default" type="radio" name="characterClass" id="{{$class->name}}" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{$class->name}}">{{$class->name}}</label>  
+          <?php } ?>
+                     
+    </div></P>
                             
       </div>
     </div>
@@ -69,16 +82,17 @@
       </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-         <?php $Races = App\Models\Race::all();
-                        foreach($Races as $Race){?>
-                        
-                        <input class="btn btn-default" type="button" value="{{$Race->name}}">
-                        
-                            <?php } ?>
+<div class="panel-body">
+<div class="btn-group" data-toggle="buttons"> 
+<?php $Races = App\Models\Race::all();
+    foreach($Races as $Race){?>
+    <label class="btn btn-default">                  
+    <input class="btn btn-default" type="radio" name="characterRace" id="{{$Race->name}}" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{$Race->name}}">{{$Race->name}}</label>  
+    <?php } ?>
       </div>
     </div>
   </div>
+</div>
 
 <!--Determine Ability Scores-->
                     
@@ -147,9 +161,14 @@
       </div>
     </div>
   </div>
-
-
+</div>
+</div>
+</div>  
+ 
 
                    
                          
-@endsection
+
+
+                        @endsection
+          
