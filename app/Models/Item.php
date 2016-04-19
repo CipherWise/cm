@@ -11,4 +11,5 @@ class Item extends Model
     {
         return $this->morphToMany('App\Models\Character', 'character_special');
     }
+    
 }
