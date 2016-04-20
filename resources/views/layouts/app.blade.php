@@ -86,12 +86,34 @@
     
     
 <script>
+    
         $(function () {
   $('[data-toggle="popover"]').popover()
 });
 </script>
 
 
+<script>
+    
+function chooseClass(name){
+    var classDescription = name;
+    document.getElementById("classDescription").innerHTML = classDescription;
+        };
+
+
+
+</script>
+
+<script>
+    
+    function chooseType (type){
+        var classType = type;
+        
+             
+        
+        
+    }
+</script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>
