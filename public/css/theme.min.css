@@ -1571,3 +1571,8 @@ select.form-control[multiple],select[multiple]{background:0 0}
     min-width: 200px;
     max-width: 200px;
 }
+
+.classtype {
+    min-width: 78px;
+    max-width: 78px;
+}
