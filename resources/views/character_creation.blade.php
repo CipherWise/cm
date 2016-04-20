@@ -49,7 +49,7 @@
       <div class="panel-body">
     Class Type:<br />
     <div class="btn-group" data-toggle="buttons">
-<?php $i=1 ?>
+
 <?php $Types = App\Models\CharacterClass::types();
     foreach ($Types as $type) {?>
         <label class="btn btn-default">                 
@@ -61,11 +61,14 @@
     <div class="btn-group" data-toggle="buttons">       
 <?php $classes = App\Models\CharacterClass::all();
     foreach($classes as $class){?>
-    <label class="btn btn-default charclass" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="{{$class->role}}">                  
-    <input class="btn btn-default" type="radio" name="characterClass" id="{{$class->name}}" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{$class->name}}">{{$class->name}}</label>  
-          <?php } ?>
+          
+    <label class="btn btn-default charclass" onClick="chooseClass('{{$class->description}}')" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="{{$class->role}}">                  
+    <input class="btn btn-default" type="radio" name="characterClass" id="{{$class->name}}" data-toggle="button" aria-pressed="false" autocomplete="off"     value="{{$class->name}}">{{$class->name}}</label>  
+      
+        <?php } ?>
                      
     </div></P>
+    <div id="classDescription"></div>
                             
       </div>
     </div>
