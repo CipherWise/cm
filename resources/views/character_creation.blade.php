@@ -7,7 +7,7 @@
 @section ('content')
 
 
-<div class="container"><div class="row"><div class="col-lg-6 col-md-offset-3"><h1> Create New Character</h1></div></div></div><br />
+<div class="container arizonia"><div class="row"><div class="col-lg-6 col-md-offset-3"><h1> Create New Character</h1></font-face></div></div></div><br />
 <br />
 
 
@@ -33,7 +33,7 @@
 
 <!--Choose Class (Start of accordion)-->
 
-<div class="container-fluid">
+<div class="container-fluid" style="padding:10px">
 <div class="row col-lg-6">
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -52,22 +52,16 @@
 
 <?php $Types = App\Models\CharacterClass::types();
     foreach ($Types as $type) {?>
-        <label class="btn btn-default">                 
+    <label class="btn btn-default classtype" onClick="chooseType()">                 
     <input class="btn btn-default" type="radio" name="classType" id="{{$type->type}}" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{$type->type}}">{{$type->type}}</label>  
           <?php } ?>
                      
     </div><br />
     <p>Class:<br />
-    <div class="btn-group" data-toggle="buttons">       
-<?php $classes = App\Models\CharacterClass::all();
-    foreach($classes as $class){?>
-          
-    <label class="btn btn-default charclass" onClick="chooseClass('{{$class->description}}')" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="{{$class->role}}">                  
-    <input class="btn btn-default" type="radio" name="characterClass" id="{{$class->name}}" data-toggle="button" aria-pressed="false" autocomplete="off"     value="{{$class->name}}">{{$class->name}}</label>  
-      
-        <?php } ?>
-                     
-    </div></P>
+        
+    <div id="classType"></div>
+                  
+    
     <div id="classDescription"></div>
                             
       </div>
@@ -109,10 +103,62 @@
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-md-8">
+          
+          <table class="table table-striped table-condensed table-bordered">
+              <tr>
+              <td>Ability:</td>
+              <td>Score:</td>
+              <td>Modifier:</td>
+              
+              </tr>
+              <tr>
+              <td>Strength:</td>
+              <td><div id="strength"></div></td>
+              <td>Placeholder:</td>
+              </tr>
+              <tr>
+              <td>Dexterity:</td>
+              <td><div id="dexterity"></div></td>
+              <td>Placeholder:</td>
+              </tr>
+              <tr>
+              <td>Constitution:</td>
+              <td><div id="constitution"></div></td>
+              <td>Placeholder:</td>
+              </tr>
+              <tr>
+              <td>Intelligence:</td>
+              <td><div id = "intelligence"></div></td>
+              <td>Placeholder:</td>
+              </tr>
+              <tr>
+              <td>Wisdom:</td>
+              <td><div id="wisdom"></div></td>
+              <td>Placeholder:</td>
+              </tr>
+              <tr>
+              <td>Charisma:</td>
+              <td><div id="charisma"></div></td>
+              <td>Placeholder:</td>
+              </tr>
+              
+          </table>
+              </div>
+              
+              
+                   <div class="col-md-4">
+                       Choose Method to Determine Ability Scores:<br/>
+                       <button type="button" class="btn btn-default" onlick="classicDice()">Roll!</button>
+                   </div>
+                  
+      </div>
       </div>
     </div>
   </div>
+</div>
 
 <!--Determine Skill Ranks-->
                     
@@ -167,10 +213,10 @@
 </div>
 </div>
 </div>  
- 
 
-                   
-                         
+
+
+               
 
 
                         @endsection
