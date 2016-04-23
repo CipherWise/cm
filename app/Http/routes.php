@@ -27,3 +27,5 @@ Route::get('/account', 'AccountController@index');
 Route::get('/player_hud', 'PlayerHUDController@index');
 
 Route::get('/character_creation', 'CharacterCreationController@index');
+
+Route::get('/html/CharClassSelector');
