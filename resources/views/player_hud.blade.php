@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+
+@section('javascripts')
+    <script src="js/characterCreation.js"></script>
+@endsection
+
+
 @section('content')
 
 <div class="container-fluid">
