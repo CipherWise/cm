@@ -23,7 +23,7 @@
                    
                     @if (Auth::user()->characters->count())
                         @foreach(Auth::user()->characters as $character)
-                            <a href="" style="margin-left:20px;">{{$character->first_name}} {{$character->last_name}}</a> - 
+                        <a href="character-sheet/{{$character->id}}" style="margin-left:20px;">{{$character->first_name}} {{$character->last_name}}</a> - 
                             @foreach($character->classes as $class)
                                 {{$class->pivot->level}} Level {{$character->race->name}} {{$class->name}}
                                 @if ($character->classes->count()>1)
