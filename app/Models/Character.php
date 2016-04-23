@@ -4,12 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Character extends Model
 {
     //
     public function user()
     {
         return $this->belongsTo('App\Models\User');
+    }
+    
+    public function player()
+    {
+        return $this->user();
     }
     
     public function party()
@@ -32,6 +38,10 @@ class Character extends Model
     {
         return $this->belongsToMany('App\Models\Skill', 'character_skill')
           ->withPivot('specialty_id', 'ranks');
+    }
+    
+    public function modifier($ability){
+        
     }
     
     

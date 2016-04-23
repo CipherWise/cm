@@ -1,0 +1,11 @@
+/*
+This is the css document that has all the custom styles for this site.
+*/
+/* 
+    Created on : Apr 23, 2016, 1:31:44 PM
+    Author     : Michael Schaafsma
+*/
+
+.control-label{
+    margin-right: 7px;
+}
