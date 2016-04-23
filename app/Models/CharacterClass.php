@@ -32,4 +32,21 @@ class CharacterClass extends Model
     {
         return CharacterClass::select('type')->distinct('type')->get();
     }
+    
+    
+    // Specials via the class_special m2mpm pivot table. TypeOption = 'specials'
+    public function feats()
+    {
+        return $this->morphedByMany('App\Models\Feat', 'class_special');
+    }
+    
+    public function special_abilities()
+    {
+        return $this->morphedByMany('App\Models\SpecialAbility', 'class_special');
+    }
+    
+    public function spells()
+    {
+        return $this->morphedByMany('App\Models\Spell', 'class_special');
+    }
 }

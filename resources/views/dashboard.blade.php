@@ -1,5 +1,18 @@
 @extends('layouts.app')
 
+
+@section('javascripts')
+<script src="js/test.js" type="text/javascript"></script>
+<script type="text/javascript">
+    
+    function testFunction(){
+        console.log('this is also a test!');
+    }
+    testFunction();
+</script>
+@endsection
+
+
 @section('content')
 <div class="container">
     <div class="row">
