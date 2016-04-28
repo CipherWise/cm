@@ -2,7 +2,9 @@
 @extends ('layouts.app')
 
 
-
+@section ('javascripts')
+<script src="js/characterCreation.js"></script>
+@endsection
 
 @section ('content')
 
@@ -50,23 +52,35 @@
     Class Type:<br />
     <div class="btn-group" data-toggle="buttons">
 
-<?php $Types = App\Models\CharacterClass::types();
+<?php 
+    $Types = App\Models\CharacterClass::types();
     foreach ($Types as $type) {?>
-    <label class="btn btn-default classtype" onClick="chooseType()">                 
+    <label class="btn btn-default classtype">                 
     <input class="btn btn-default" type="radio" name="classType" id="{{$type->type}}" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{$type->type}}">{{$type->type}}</label>  
           <?php } ?>
+   </div>
+      </div>
+        
                      
     </div><br />
     <p>Class:<br />
         
-    <div id="classType"></div>
-                  
+    <div class="chooseType">
+    <div class="btn-group" data-toggle="buttons">       
+<?php
+    $Classes = App\Models\CharacterClass::all();
+    foreach($Classes as $class){?>
+          
+    <label class="btn btn-default charclass" onClick="chooseClass('{{$class->description}}')" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="{{$class->role}}">                  
+    <input class="btn btn-default" type="radio" name="characterClass" id="{{$class->name}}" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{$class->name}}">{{$class->name}}</label>  
+    </div>
+      </div>
+        <?php } ?>   
     
     <div id="classDescription"></div>
                             
       </div>
-    </div>
-  </div>
+    
   
 <!--Choose Race-->
                     
@@ -151,7 +165,7 @@
               
                    <div class="col-md-4">
                        Choose Method to Determine Ability Scores:<br/>
-                       <button type="button" class="btn btn-default" onlick="classicDice()">Roll!</button>
+                       <button type="button" class="btn btn-primary" onClick = "classicDice()">Roll!</button>
                    </div>
                   
       </div>
@@ -213,7 +227,23 @@
 </div>
 </div>
 </div>  
-
+<html>       
+    <div class="hidden">  
+    <div id="chooseType">
+    <div class="btn-group" data-toggle="buttons">       
+<?php use App\Models\CharacterClass;
+    $Classes = App\Models\CharacterClass::all();
+    foreach($Classes as $class){?>
+          
+    <label class="btn btn-default charclass" onClick="chooseClass('{{$class->description}}')" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="{{$class->role}}">                  
+    <input class="btn btn-default" type="radio" name="characterClass" id="{{$class->name}}" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{$class->name}}">{{$class->name}}</label>  
+      
+        <?php } ?>
+        
+    </div>
+    </div>
+    </div>
+</html>
 
 
                
