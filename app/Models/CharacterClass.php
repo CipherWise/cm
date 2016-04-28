@@ -35,7 +35,8 @@ class CharacterClass extends Model
     
     public function class_skills()
     {
-        return $this->belongsToMany('App\Models\Skill', 'class_skill');
+        return $this->belongsToMany('App\Models\Skill', 'class_skill')
+            ->withPivot('specialty_id');
     }
     
     // Specials via the class_special m2mpm pivot table. TypeOption = 'specials'

@@ -38,7 +38,9 @@
                                 @endif
                             @endforeach
                             <?php $skill = App\Models\Skill::find(14); ?>
-                            {{proper($skill->specialties->first()->name)}}
+                            
+                            
+                            {{$character->full_skills}}
                             <br /><br />
                         @endforeach
                     @else

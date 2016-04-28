@@ -1,4 +1,3 @@
-
 @extends ('layouts.app')
 
 
@@ -7,11 +6,8 @@
 @endsection
 
 @section ('content')
-
-
 <div class="container arizonia"><div class="row"><div class="col-lg-6 col-md-offset-3"><h1> Create New Character</h1></font-face></div></div></div><br />
 <br />
-
 
 <!--The Deets (Pen and Paper style)-->
 

@@ -12,4 +12,9 @@ class SkillSpecialty extends Model
     {
         return $this->belongsTo('App\Models\Skill');
     }
+    
+    public function characters()
+    {
+        return $this->belongsToMany('App\Models\Character', 'character_skill');
+    }
 }

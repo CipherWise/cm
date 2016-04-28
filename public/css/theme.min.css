@@ -1582,3 +1582,7 @@ select.form-control[multiple],select[multiple]{background:0 0}
   color: #2b2b2b;
   text-shadow: 4px 4px 0px rgba(0,0,0,0.1); 
 }
+
+.hidden {
+    display: none;
+}
