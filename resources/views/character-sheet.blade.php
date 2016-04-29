@@ -139,31 +139,26 @@
                 <table>
                     <tbody>
                         <tr>
-                            <td>skill</td>
-                            <td><span class="stat_field_mlabel">total</span></td>
-                            <td><span class="stat_field_mlabel">ranks</span></td>
-                            <td><span class="stat_field_mlabel">ability mod</span></td>
+                            <td>Skill</td>
+                            <td><span class="stat_field_mlabel">Score</span></td>
+                            <td><span class="stat_field_mlabel">Ranks</span></td>
+                            <td><span class="stat_field_mlabel">Ability mod</span></td>
+                            <td><span class="stat_field_mlabel">Other mod</span></td>
                         </tr>
-                    	<?php foreach($character->skills as $skill){
-                                // Calculate the skill total
-                                $total = 0;
-                                if((in_array($skill->id', $class_skills)||in_array($cskrow['skill_id'].'-'.$cskrow['specialty_id'], $class_skills))&&$cskrow['ranks']>0){
-                                        $total += 2;
-                                }
-                                $total += $cskrow['ranks'];
-                                $total += $mods[$row[$skills[$cskrow['skill_id']]['ability_modifier']]];
-
-                                echo "<tr><td valign=\"middle\" align=\"right\"><label class=\"\" title=\""
-                                        .($cskrow['specialty_id']!=NULL?$specialties[$cskrow['specialty_id']]['description']:$skills[$cskrow['skill_id']]['description'])
-                                        ."\" for=\"".$skills[$cskrow['skill_id']]['skill']."\">"
-                                        .proper($skills[$cskrow['skill_id']]['skill']).($cskrow['specialty_id']!=NULL?' ('.$specialties[$cskrow['specialty_id']]['specialty'].')':'')
-                                        .(in_array($cskrow['skill_id'], $class_skills)?'*':'')."</label></td>";
-                                echo "<td>".$total.($skills[$cskrow['skill_id']]['armor_check_penalty']==1?'/'.($total-$armor_check_penalty):'')."</td>";
-                                echo "<td>".$cskrow['ranks']."</td>";
-                                echo "<td>".proper(substr($skills[$cskrow['skill_id']]['ability_modifier'],0,3))." ".mod_prefix($mods[$row[$skills[$cskrow['skill_id']]['ability_modifier']]])."</td>";
-                         } ?>
+                    	@foreach($character->skills as $skill)
+                        <tr>
+                            <td>{{($skill->class_skill?'*':'')}}{{$skill->name}}{{($skill->specialty==null?'':'('.$skill->specialty->name.')')}}</td>
+                            <td><input name="skill_score_{{$skill->id}}" id="skill_score_{{$skill->id}}" value="{{$skill->score}}" class="info_field_line" size="8" /></td>
+                            <td><input name="skill_ranks_{{$skill->id}}" id="skill_ranks_{{$skill->id}}" value="{{$skill->ranks}}" class="info_field_line" size="8" /></td>
+                            <td><input name="skill_abilitymod_{{$skill->id}}" id="skill_abilitymod_{{$skill->id}}" value="{{$skill->ability_modifier}}" class="info_field_line" size="8" /></td>
+                            <td><input name="skill_othermods_{{$skill->id}}" id="skill_othermods_{{$skill->id}}" value="{{$skill->mods}}" class="info_field_line" size="8" /></td>
+                        </tr>
+                        
+                        @endforeach
                 	</tbody>
                 </table>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <strong>*Denotes Class Skills</strong>
             </td>
         </tr>
         

@@ -18,15 +18,7 @@ class CharacterController extends Controller
     public function character_sheet($id){
         $character = Character::find($id);
         $abilities = new AbilityScore;
-        //$n = $this->full_skills($id);
-        $n = $character->skills();
-
-        foreach($n as $m){
-            echo $m;
-            echo "<br /><br />";
-        }
         
-        die();
         return view('character-sheet')
             ->with('character', $character)
             ->with('abilities', $abilities);

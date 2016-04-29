@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Models\Skill;
+use App\Models\AbilityScore;
+use App\Models\CharacterClass;
+use App\Models\SkillSpecialty;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\CharacterClass;
-use App\Models\Skill;
-use App\Models\SkillSpecialty;
 
 
 class Character extends Model
@@ -44,22 +45,33 @@ class Character extends Model
           ->withPivot('specialty_id', 'ranks');
     }
     
-    public function skills(){
+    public function getSkillsAttribute(){
         
         $full_skills = new Collection();
         $skills = Skill::all();
         $specialties = SkillSpecialty::all();
         $ranked = $this->ranked_skills;
-        $classes = $this->classes;
         $class_skills = array();
         
         // Build array of class skills
+        $classes = $this->classes;
         foreach($classes as $class){
             $cskills = CharacterClass::find($class->id)->class_skills;
             foreach($cskills as $cskill){
                 $class_skills[$cskill->id] = $cskill->name;
             }
         }
+        
+        // Calculate the total skill score
+        function calc_skill($skill){
+            $abilities = new AbilityScore;
+            $skill->ability_modifier = $abilities->modifier($skill->ability_score)->mod;
+            $skill->score = $skill->ranks + ($skill->class_skill?2:0) + $skill->ability_modifier;
+            // TODO: Additional Modifiers with source info?
+            $skill->mods = 0;
+            return $skill;
+        }
+        
         
         // Iterate through skills adding ranking, class skill markers, and specialties.
         foreach($skills as $skill){
@@ -82,7 +94,9 @@ class Character extends Model
                         $current->specialty = null;
                     }
                     unset($current->pivot);
+                    $current->ability_score = $this[$current->ability];
                     $current->class_skill = (array_key_exists($skill->id, $class_skills)?1:0);
+                    $current = calc_skill($current);
                     $full_skills->push($current);
                 }
             }else{
@@ -90,7 +104,9 @@ class Character extends Model
                 $current = $skill;
                 $current->ranks = 0;
                 $current->specialty = null;
+                $current->ability_score = $this[$current->ability];
                 $current->class_skill = (array_key_exists($skill->id, $class_skills)?1:0);
+                $current = calc_skill($current);
                 $full_skills->push($current);
             }
         }
