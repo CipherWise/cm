@@ -1,7 +1,8 @@
 @extends ('layouts.app')
 
-@section('javascripts')
-    <script src="js/characterCreation.js"></script>
+
+@section ('javascripts')
+<script src="js/characterCreation.js"></script>
 @endsection
 
 @section ('content')
@@ -47,24 +48,148 @@
     Class Type:<br />
     <div class="btn-group" data-toggle="buttons">
 
-<?php $Types = App\Models\CharacterClass::types();
+<?php 
+    $Types = App\Models\CharacterClass::types();
     foreach ($Types as $type) {?>
-    <label class="btn btn-default classtype" onClick="chooseType()">                 
+    <label class="btn btn-default classtype" onClick="chooseType('{{$type->type}}')">                 
     <input class="btn btn-default" type="radio" name="classType" id="{{$type->type}}" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{$type->type}}">{{$type->type}}</label>  
           <?php } ?>
-                     
-    </div><br />
-    <p>Class:<br />
+   </div>
+     
         
-    <div id="classType"></div>
-                  
+    <br />
+    <br />
+        
+   
+<!--Core Classes-->
+
+    <div id="coreClasses" style="display: none">
+        <h4>Core Classes:</h4><br />
+    <div class="btn-group" data-toggle="buttons">       
+<?php
+    $Classes = App\Models\CharacterClass::where("type","=","core")->get();
+            
+    foreach($Classes as $class){
+        ?>
+          
+    <label class="btn btn-default charclass" onClick="chooseClass('{{$class->description}}')" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="{{$class->role}}">                  
+    <input class="btn btn-default" type="radio" name="characterClass" id="{{$class->name}}" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{$class->name}}">{{$class->name}}</label>  
     
+      
+    <?php } ?>
+    </div>
+    </div>
+    
+    
+<!--Base Classes-->
+
+<div id="baseClasses" style="display: none">
+    <h4>Base Classes:</h4><br />
+    <div class="btn-group" data-toggle="buttons">       
+<?php
+    $Classes = App\Models\CharacterClass::where("type","=","base")->get();
+            
+    foreach($Classes as $class){
+        ?>
+          
+    <label class="btn btn-default charclass" onClick="chooseClass('{{$class->description}}')" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="{{$class->role}}">                  
+    <input class="btn btn-default" type="radio" name="characterClass" id="{{$class->name}}" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{$class->name}}">{{$class->name}}</label>  
+    
+      
+    <?php } ?>
+    </div>
+</div>
+    
+    
+<!--Alternate Classes-->
+
+<div id="alternateClasses" style="display: none">
+    <h4>Alternate Classes:</h4><br />
+    <div class="btn-group" data-toggle="buttons">       
+<?php
+    $Classes = App\Models\CharacterClass::where("type","=","alternate")->get();
+            
+    foreach($Classes as $class){
+        ?>
+          
+    <label class="btn btn-default charclass" onClick="chooseClass('{{$class->description}}')" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="{{$class->role}}">                  
+    <input class="btn btn-default" type="radio" name="characterClass" id="{{$class->name}}" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{$class->name}}">{{$class->name}}</label>  
+    
+      
+    <?php } ?>
+    </div>
+    </div>
+    
+    
+<!--Hybrid Classes-->
+
+<div id="hybridClasses" style="display: none">
+    <h4>Hybrid Classes:</h4><br />
+    <div class="btn-group" data-toggle="buttons">       
+<?php
+    $Classes = App\Models\CharacterClass::where("type","=","hybrid")->get();
+            
+    foreach($Classes as $class){
+        ?>
+          
+    <label class="btn btn-default charclass" onClick="chooseClass('{{$class->description}}')" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="{{$class->role}}">                  
+    <input class="btn btn-default" type="radio" name="characterClass" id="{{$class->name}}" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{$class->name}}">{{$class->name}}</label>  
+    
+      
+    <?php } ?>
+    </div>
+</div>
+    
+    
+<!--Prestige Classes-->
+
+    <div id="prestigeClasses" style="display: none">
+        <h4>Prestige Classes:</h4><br />
+    <div class="btn-group" data-toggle="buttons">       
+<?php
+    $Classes = App\Models\CharacterClass::where("type","=","prestige")->get();
+            
+    foreach($Classes as $class){
+        ?>
+          
+    <label class="btn btn-default charclass" onClick="chooseClass('{{$class->description}}')" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="{{$class->role}}">                  
+    <input class="btn btn-default" type="radio" name="characterClass" id="{{$class->name}}" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{$class->name}}">{{$class->name}}</label>  
+    
+      
+    <?php } ?>
+    </div>
+    </div>
+    
+    
+<!--NPC Classes-->
+   
+    <div id="npcClasses" style="display: none">
+        <h4>Non Player-Character Classes:</h4><br />
+    <div class="btn-group" data-toggle="buttons">       
+<?php
+    $Classes = App\Models\CharacterClass::where("type","=","npc")->get();
+            
+    foreach($Classes as $class){
+        ?>
+          
+    <label class="btn btn-default charclass" onClick="chooseClass('{{$class->description}}')" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="{{$class->role}}">                  
+    <input class="btn btn-default" type="radio" name="characterClass" id="{{$class->name}}" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{$class->name}}">{{$class->name}}</label>  
+    
+      
+    <?php } ?>
+    </div>
+    </div>
+    
+    
+    <h5>Class: Description:</h5><br />
     <div id="classDescription"></div>
+    
+    
+    
                             
       </div>
-    </div>
   </div>
-  
+  </div>
 <!--Choose Race-->
                     
 <div class="panel panel-default">
@@ -148,7 +273,12 @@
               
                    <div class="col-md-4">
                        Choose Method to Determine Ability Scores:<br/>
-                       <button type="button" class="btn btn-default" onlick="classicDice()">Roll!</button>
+                       <button type="button" class="btn btn-primary" onClick = "classicDice()">Roll!</button>
+                   
+                  
+                  
+                       Choose Method to Determine Ability Scores:<br/>
+                       <button type="button" class="btn btn-primary" onClick = "removeLowest()">Roll!</button>
                    </div>
                   
       </div>
@@ -156,6 +286,11 @@
     </div>
   </div>
 </div>
+
+
+
+
+
 
 <!--Determine Skill Ranks-->
                     
@@ -210,7 +345,23 @@
 </div>
 </div>
 </div>  
-
+<html>       
+    <div class="hidden">  
+    <div id="chooseType">
+    <div class="btn-group" data-toggle="buttons">       
+<?php use App\Models\CharacterClass;
+    $Classes = App\Models\CharacterClass::all();
+    foreach($Classes as $class){?>
+          
+    <label class="btn btn-default charclass" onClick="chooseClass('{{$class->description}}')" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="{{$class->role}}">                  
+    <input class="btn btn-default" type="radio" name="characterClass" id="{{$class->name}}" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{$class->name}}">{{$class->name}}</label>  
+      
+        <?php } ?>
+        
+    </div>
+    </div>
+    </div>
+</html>
 
 
                

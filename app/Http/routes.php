@@ -30,4 +30,4 @@ Route::get('/character_creation', 'CharacterCreationController@index');
 
 Route::get('/character-sheet/{id}', 'CharacterController@character_sheet')->where(array('id'=>'[0-9]+'));
 
-Route::get('/html/CharClassSelector');
+Route::get('/html/CharClassSelector', 'CharacterCreationController@CharClassSelector');

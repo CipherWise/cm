@@ -19,4 +19,5 @@ class CharacterCreationController extends Controller
     {
         return view('character_creation');
     }
+   
 }
