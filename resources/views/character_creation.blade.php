@@ -1,11 +1,11 @@
 @extends ('layouts.app')
 
-
 @section ('javascripts')
 <script src="js/characterCreation.js"></script>
 @endsection
 
 @section ('content')
+
 <div class="container arizonia"><div class="row"><div class="col-lg-6 col-md-offset-3"><h1> Create New Character</h1></font-face></div></div></div><br />
 <br />
 
@@ -238,33 +238,41 @@
               </tr>
               <tr>
               <td>Strength:</td>
-              <td><div id="strength"></div></td>
-              <td>Placeholder:</td>
+              <td><div id="strMath" class="score"></div>
+                          <b><div id="strength">
+                      
+                      </div></b>
+              <td><div id="strMod"></div></td>
               </tr>
               <tr>
               <td>Dexterity:</td>
-              <td><div id="dexterity"></div></td>
-              <td>Placeholder:</td>
+              <td><div id="dexMath" class="score"></div>
+                  <b><div id="dexterity"></div></b>
+              <td><div id="dexMod"></div></td>
               </tr>
               <tr>
               <td>Constitution:</td>
-              <td><div id="constitution"></div></td>
-              <td>Placeholder:</td>
+              <td><div id="conMath" class="score"></div>
+                  <b><div id="constitution"></div></b>
+              <td><div id="conMod"></div></td>
               </tr>
               <tr>
               <td>Intelligence:</td>
-              <td><div id = "intelligence"></div></td>
-              <td>Placeholder:</td>
+              <td><div id="intMath" class="score"></div>
+                  <b><div id = "intelligence"></div></b>
+              <td><div id="intMod"></div></td>
               </tr>
               <tr>
               <td>Wisdom:</td>
-              <td><div id="wisdom"></div></td>
-              <td>Placeholder:</td>
+              <td><div id="wisMath" class="score"></div>
+                  <b><div id="wisdom"></div></b>
+              <td><div id="wisMod"></div></td>
               </tr>
               <tr>
               <td>Charisma:</td>
-              <td><div id="charisma"></div></td>
-              <td>Placeholder:</td>
+              <td><div id="chaMath" class="score"></div>
+                  <b><div id="charisma"></div></b>
+              <td><div id="chaMod"></div></td>
               </tr>
               
           </table>
