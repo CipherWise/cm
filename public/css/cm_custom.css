@@ -9,3 +9,160 @@ This is the css document that has all the custom styles for this site.
 .control-label{
     margin-right: 7px;
 }
+
+
+
+/* 
+* Character Sheet 
+* Michael Schaafsma
+*/
+
+
+#cs-container {
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 60px;
+}
+
+#arrangement table{
+	display: inline-block;
+}
+
+#logo{
+	width: 600px;
+}
+
+#title{
+	font-family: typeWritten;
+	font-size: 50px;
+}
+
+#weapons_div input{
+	width: 70px;
+	overflow: hidden;
+}
+
+.info_field_div{
+	position: relative;
+	display: inline-block;
+    padding-bottom: 16px;
+	margin-right: 2px;
+}
+
+.info_field_label{
+	position: absolute;
+    top: 59px;
+    left: 0px;
+	color: #705b3f;
+	font-family: typeWritten;
+	font-size: 16px;
+}
+
+.info_field_line{
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #756145;
+    font-family: handWritten;
+    font-size: 21px;
+    padding-bottom: 0px;
+	padding-top: 0px;
+	height: 58px;
+	padding-left: 4px;
+}
+
+.stat_field_label{
+	font-size: 32px;
+	margin-top: 13px;
+	margin-right: 3px;
+	float: right;
+	font-family: typeWritten;
+}
+
+.stat_field_mlabel{
+	font-size: 19px;
+	font-family: typeWritten;
+}
+	
+.stat_field_lg{
+	font-size: 44px;
+    text-align: center;
+    font-family: cursive;
+    width: 75px;
+    height: 60px;
+	margin: 3px;
+	border-radius: 8px 8px 8px 8px;
+	-moz-border-radius: 8px 8px 8px 8px;
+	-webkit-border-radius: 8px 8px 8px 8px;
+    border: 2px solid #000;
+    background-color: #f9ead4;
+	font-family: typeWritten;
+}
+
+.info_click{
+	text-decoration:underline;
+}
+
+.info_view{
+	position: absolute;
+	width: 1000px;
+	padding: 60px;
+	top:50px;
+	left:15%;
+	background-color:#fff;
+	border:3px solid #756145;
+	border-radius: 18px 18px 18px 18px;
+	-moz-border-radius: 18px 18px 18px 18px;
+	-webkit-border-radius: 18px 18px 18px 18px;
+}
+
+.info_view_header{
+	height: 90px;
+}
+
+.info_view_header label{
+    position: absolute;
+	top: 123px;
+    right: 100px;
+}
+
+.info_view_header span{
+	font-family: handWritten;
+    font-size: 124px;
+    position: absolute;
+    top: 4px;
+    right: 90px;
+}
+
+.info_view_table td{
+	text-align: left;
+    padding-left: 3px;
+    padding-bottom: 10px;
+}
+
+
+.close_info{
+	position: absolute; 
+	right: 25px; 
+	top: 29px;
+}
+
+.glyphicon-remove-circle{
+	height: 18px;
+	height: 18px;
+}
+
+#class_info label{
+	color: #000;
+	margin-bottom: 0px;
+}
+
+.table_view th{
+	font-weight: bold;
+	border: 2px solid #000;
+	padding: 2px;
+}
+
+.table_view td{
+	border: 2px solid #000;
+	padding: 2px;
+}

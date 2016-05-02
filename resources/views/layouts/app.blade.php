@@ -15,13 +15,13 @@
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
     
     <!-- Fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet' type='text/css'>
-    <link href='css/cm_custom.css' rel='stylesheet' type='text/css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Arizonia" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/cm_custom.css')}}" rel="stylesheet" type="text/css">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="css/theme.min.css">
+    <link rel="stylesheet" href="{{asset('css/theme.min.css')}}">
 
     <style>
         body {
@@ -50,7 +50,7 @@
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}" style="padding-bottom:10px">
                                       
-                    <img src="images/crusade_master_logo_TN.png" style="padding=bottom:10px">
+                    <img src="{{asset('images/crusade_master_logo_TN.png')}}" style="padding=bottom:10px">
                                    
                 </a>
             </div>

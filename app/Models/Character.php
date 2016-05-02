@@ -66,9 +66,9 @@ class Character extends Model
         function calc_skill($skill){
             $abilities = new AbilityScore;
             $skill->ability_modifier = $abilities->modifier($skill->ability_score)->mod;
-            $skill->score = $skill->ranks + ($skill->class_skill?2:0) + $skill->ability_modifier;
+            $skill->score = $skill->ranks + ($skill->ranks&&$skill->class_skill?2:0) + $skill->ability_modifier;
             // TODO: Additional Modifiers with source info?
-            $skill->mods = 0;
+            $skill->mods = ($skill->ranks&&$skill->class_skill?2:0);
             return $skill;
         }
         
