@@ -45,7 +45,17 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-    Class Type:<br />
+    
+          <p>Classes are a character's defining role and purpose. More than a job or profession, 
+          Character Classes determine a character's abilities and starting stats. A character 
+          may take levels in more than one Class (with some restrictions), but the Class chosen 
+          at creation is known as a chacter's "Favored Class." Whenever a character gains a level 
+          in their Favored Class, they may chose to gain +1 to their Hit Points, + Skill Ranks, or 
+          other benefits, as noted.</P><br />
+          
+          <p>Several Types of Classes are available for play. Please check with your Game Master to 
+              see what Types of Classes they may or may not allow in your Campaign.</p> <br />
+          Class Type:<br />
     <div class="btn-group" data-toggle="buttons">
 
 <?php 
@@ -65,6 +75,8 @@
 
     <div id="coreClasses" style="display: none">
         <h4>Core Classes:</h4><br />
+        <p>Core Classes represent the basic types of Player Characters, and are considered appropriate for
+            almost all campaigns. Core classes have 20 fully detailed levels of advancement.</p> <br/>
     <div class="btn-group" data-toggle="buttons">       
 <?php
     $Classes = App\Models\CharacterClass::where("type","=","core")->get();
@@ -85,6 +97,10 @@
 
 <div id="baseClasses" style="display: none">
     <h4>Base Classes:</h4><br />
+    <p>Base Classes represent more esoteric Classes, each with a full 20 level progression 
+       and does not have prerequisites for entry (as a Prestige Class does). Game Masters 
+       determine what is and isn’t allowed in his or her campaign. Each new class presents 
+       interesting new character themes and special abilities.</p>
     <div class="btn-group" data-toggle="buttons">       
 <?php
     $Classes = App\Models\CharacterClass::where("type","=","base")->get();
