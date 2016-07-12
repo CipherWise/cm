@@ -30,4 +30,4 @@ Route::get('/character_creation', 'CharacterCreationController@index');
 
 Route::get('/html/CharClassSelector', 'CharacterCreationController@CharClassSelector');
 
-Route::resource('character','CharacterController');
+Route::resource('character-sheet','CharacterController');
