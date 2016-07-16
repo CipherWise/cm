@@ -11,8 +11,8 @@ use Illuminate\Database\Eloquent\Model;
 
 
 class Character extends Model
-{
-    //
+{    
+    
     public function user()
     {
         return $this->belongsTo('App\Models\User');
@@ -155,5 +155,5 @@ class Character extends Model
     {
         return $this->morphedByMany('App\Models\Weapon', 'character_equipment');
     }
-
+    
 }
