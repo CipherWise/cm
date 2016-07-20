@@ -10,6 +10,7 @@ use App\Models\AbilityScore;
 use App\Models\Skill;
 use App\Models\SkillSpecialty;
 
+
 class CharacterController extends Controller
 {
     /**

@@ -7,10 +7,11 @@ use App\Models\AbilityScore;
 use App\Models\CharacterClass;
 use App\Models\SkillSpecialty;
 use Illuminate\Support\Collection;
-use Illuminate\Database\Eloquent\Model;
+use Vendor\cipherwise\gold\GenOModel;
+//use Illuminate\Database\Eloquent\Model;
 
 
-class Character extends Model
+class Character extends GenOModel
 {    
     
     public function user()

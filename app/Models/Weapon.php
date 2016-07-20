@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-//use Vendor\cipherwise\gold\Weapon;
+//use Illuminate\Database\Eloquent\Model;
+use Vendor\cipherwise\gold\GenoModel;
 
-class Weapon extends Model
+class Weapon extends GenoModel
 {
     //
     public function characters()
@@ -17,32 +17,26 @@ class Weapon extends Model
     {
         return $this->belongsToMany('App\Models\Ammunition');
     }
-//    
-//    public function merge_gold()
-//    {
-//        $gow = new Weapon();
-//        
-//        // Get and append properties
-//        $props = get_object_vars($gow);
-//        foreach($props as $key => $value){
-//            if(!$this->$key){
-//                $this->$key = $value;
-//            }
-//        }
-//        
-//        $this->go = $gow;
-//        
-//        
-//        
-//        
-//        
-//        // Get and append methods
-//        $meths = get_class_methods($gow);
-//        foreach($meths as $mname){
-//            $gow->$mname();
-//            
-//            
-//            $this->$mname = $gow->$mname();
-//        }
-//    }
+    
+    public function merge_geno()
+    {
+        $geno = "Vendor\\cipherwise\\gold\\".get_class();
+        if(class_exists($geno)){
+            $this->geno = new $geno();
+
+            // Get and append properties
+            $props = get_object_vars($this->geno);
+            foreach($props as $key => $value){
+                if(!$this->$key){
+                    $this->$key = $value;
+                }
+            }
+
+            // Get and append methods
+            $meths = get_class_methods($this->geno);
+            foreach($meths as $mname){
+                $this->$mname = function(){ $this->geno->$mname(func_get_arg()); };
+            }
+        }
+    }
 }
