@@ -6,16 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class GenOModel extends Model
 {
-  private $geno = array();
-  private $geno_namespace = "Vendor\\cipherwise\\gold\\";
+  protected $geno = array();
+  protected $geno_namespace = "Vendor\\cipherwise\\gold\\";
   
   public function __construct() 
   {
     $array = explode("\\", get_called_class());
     $class_name = end($array);
-    $class_name = $geno_namespace.$class_name;
+    $class_name = $this->geno_namespace.$class_name;
     if(!class_exists($class_name)){
-         $class_name = $geno_namespace."Thing";   
+         $class_name = $this->geno_namespace."Thing";   
     }
     $geno = new $class_name();
     $this->extendWith($geno);

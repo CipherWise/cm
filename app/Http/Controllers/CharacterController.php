@@ -54,6 +54,8 @@ class CharacterController extends Controller
     {
         $character = Character::find($id);
         $abilities = new AbilityScore;
+        $character->nick_name = "Bob";
+        $character->save();
         
         return view('character-sheet')
             ->with('character', $character)

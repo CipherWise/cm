@@ -15,7 +15,7 @@ class Thing{
     // properties
     public $name = "";
     public $type = "";
-    public $id = "";
+    public $geno_id = "";
     public $x_position = 0;
     public $y_position = 0;
     public $z_position = 0;
